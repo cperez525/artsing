@@ -1,3 +1,5 @@
 module.exports = {
-    Artist: require("./artist")
+    User: require("./user"),
+    Video: require("./videoRecording"),
+    Audio: require("./audioRecording")
   };
