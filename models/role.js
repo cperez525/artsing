@@ -11,7 +11,7 @@ const roleSchema = new Schema({
         required: "You must enter the name of the opera or show."
     },
     composer: {
-        type: URL,
+        type: String,
         required: "You must enter then ame of the composer of this piece."
     }
 });

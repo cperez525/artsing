@@ -11,7 +11,7 @@ const videoSchema = new Schema({
         required: "You must enter the composer of this piece."
     },
     video_link: {
-        type: URL,
+        type: String,
         required: "Please provide the youtube embedded link"
     }
 });

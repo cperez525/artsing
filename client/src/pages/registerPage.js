@@ -1,20 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import AuthService from '../services/Authentication';
-import { AuthContext } from '../Context/AuthenticationCtxt';
 import { Form, FormLabel, Button } from "react-bootstrap"
 import Message from '../components/message';
 
 
-function SignIn(props) {
+function Register(props) {
 
     const [user, setUser] = useState({ email: "", password: "" });
     const [message, setMessage] = useState(null);
-    const authContext = useContext(AuthContext);
+    let timerID = useRef(null);
+
+    useEffect(() => {
+        return () => {
+            clearTimeout(timerID);
+        }
+    }, []);
 
     const onChange = (e) => {
         e.preventDefault();
 
-        setUser({...user, [e.target.name] : e.target.value});
+        setUser({ ...user, [e.target.name]: e.target.value });
         console.log(user)
     };
 
@@ -23,19 +28,18 @@ function SignIn(props) {
 
         console.log(user)
 
-        AuthService.login(user).then(data => {
+        AuthService.register(user).then(data => {
 
-            console.log(data);
-            const { isAuthenicated, user, message} = data;
-            if(isAuthenicated) {
-                authContext.setUser(user);
-                authContext.setIsAuthenticated(isAuthenicated);
-                props.history.push('/user')
-            } else {
-                setMessage(message);
+            const { message } = data;
+            setMessage(message);
+            resetForm();
+
+            if(!message.msgError){
+                timerID = setTimeout(() => {
+                    props.history.push('/signin')
+                })
             }
-
-        })
+        });
     }
 
     return (
@@ -53,4 +57,4 @@ function SignIn(props) {
     )
 }
 
-export default SignIn
+export default Register

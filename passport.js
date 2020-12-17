@@ -31,11 +31,15 @@ passport.use(new JwtStrategy({
 }));
 
 // authenticate user by email address and password
-passport.use(new LocalStrategy((email, password, done) => {
-    User.findOne({ email }, (err, user) => {
+passport.use(new LocalStrategy(
+    {
+        usernameField: "email"
+    },
+    (email, password, done) => {
+    User.findOne({ email: email }, (err, user) => {
 
         // database issue
-        if (err) return done(err);
+        if (err) console.log(err);
 
         // no such user exists in database
         if (!user) return done(null, false);

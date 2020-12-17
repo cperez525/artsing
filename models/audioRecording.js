@@ -11,7 +11,7 @@ const audioSchema = new Schema({
         required: "You must enter the composer of this piece."
     },
     audio_link: {
-        type: URL,
+        type: String,
         required: true
     }
 });
