@@ -10,7 +10,7 @@ function SignOut(){
     const LogoutHandler = (e) =>{
         AuthService.logout().then(data => {
             if(data.success) {
-                setUser(data.user);
+                setUser({});
                 setIsAuthenticated(false);
             }
         })

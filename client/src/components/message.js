@@ -1,23 +1,15 @@
 import React from 'react';
+import { Alert } from 'react-bootstrap'
 
 function Message(props){
 
-    const getStyle = (props) => {
-        let baseClass = "alert ";
-        if(props.message.msgError){
-            baseClass = basClass + "alert-danger";
-        } else {
-            baseClass = baseClass + "alert-success";
-        }
-
-        return baseClass + "text-center"
-    }
 
     return (
 
-        <div className={getComputedStyle(props)} role="alert">
-            {props.message.msgBody}
-        </div>
+        <Alert variant={props.message.messageError ? "danger" : "success"} >
+            {props.message.messageBody}
+            {console.log(props)}
+        </Alert>
     )
 }
 

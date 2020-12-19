@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage";
 import SearchPage from "./pages/searchPage";
 import SignIn from "./pages/signInPage";
 import ProfilePage from "./pages/profilePage"
+import Register from "./pages/registerPage";
 
 function App() {
   return (
@@ -12,19 +13,11 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/signin">
-            <SignIn />
-          </Route>
-          <Route exact path="/search">
-            <SearchPage />
-          </Route>
-          <Route exact path="/user">
-            <ProfilePage />
-          </Route>
-
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/search" component={SearchPage} />
+          <Route exact path="/profile=:id" component={ProfilePage}/>
+          <Route exact path="/register" component={Register} />
         </Switch>
       </div>
     </Router>

@@ -1,14 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
+import {useHistory} from "react-router-dom"
 import AuthService from '../services/Authentication';
-import { Form, FormLabel, Button } from "react-bootstrap"
+import { Form, Button, Container} from "react-bootstrap"
 import Message from '../components/message';
 
 
 function Register(props) {
 
-    const [user, setUser] = useState({ email: "", password: "" });
+    const [user, setUser] = useState({});
     const [message, setMessage] = useState(null);
     let timerID = useRef(null);
+
+    const history = useHistory();
 
     useEffect(() => {
         return () => {
@@ -17,43 +20,66 @@ function Register(props) {
     }, []);
 
     const onChange = (e) => {
-        e.preventDefault();
-
-        setUser({ ...user, [e.target.name]: e.target.value });
-        console.log(user)
+        const { name, value } = e.target
+        setUser({ ...user, [name]: value });
+        setMessage(null);
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
 
-        console.log(user)
 
+        if(user.password.length < 6){
+            return setMessage({messageBody: "Password must be at least 6 characters", messageError: true})
+        }
+        
         AuthService.register(user).then(data => {
 
             const { message } = data;
             setMessage(message);
-            resetForm();
+            
 
-            if(!message.msgError){
+            if (!message.messageError) {
                 timerID = setTimeout(() => {
-                    props.history.push('/signin')
-                })
+                    history.push('/signin');
+                }, 1000)
             }
         });
     }
 
     return (
-        <div>
+        <Container>
             <Form onSubmit={onSubmit}>
-                <FormLabel htmlFor="email" className="sr-only">UserName: </FormLabel>
-                <input className="form-control" type="text" name="email" placeholder="Email Address" onChange={onChange} />
-                <FormLabel htmlFor="password" className="sr-only">UserName: </FormLabel>
-                <input className="form-control" type="password" name="password" placeholder="Password" onChange={onChange} />
-                <Button variant="outline-dark" type="submit">Sign In</Button>
+                <Form.Label htmlFor="first_name">First Name: </Form.Label>
+                <input className="form-control" type="text" name="first_name" placeholder="Jane (required)" onChange={onChange} required="You must provide a first name"/>
+                <Form.Label htmlFor="last_name">Last Name: </Form.Label>
+                <input className="form-control" type="text" name="last_name" placeholder="Doe (required)" onChange={onChange} required/>
+                <Form.Label>Voice Type:</Form.Label>
+                <Form.Control name="voice_type" as="select" onChange={onChange}>
+                    <option>soprano</option>
+                    <option>mezzo-soprano</option>
+                    <option>contralto</option>
+                    <option>countertenor</option>
+                    <option>tenor</option>
+                    <option>baritone</option>
+                    <option>bass-baritone</option>
+                    <option>bass</option>
+                </Form.Control>
+                <Form.Label htmlFor="city">City: </Form.Label>
+                <input className="form-control" type="text" name="city" placeholder="Austin (required)" onChange={onChange} required />
+                <Form.Label htmlFor="state">State: </Form.Label>
+                <input className="form-control" type="text" name="state" placeholder="Texas (required)" onChange={onChange} required/>
+                <Form.Label htmlFor="password">School: </Form.Label>
+                <input className="form-control" type="text" name="password" placeholder="University of Houston (not required)" onChange={onChange}/>
+                <Form.Label htmlFor="email">Email Address: </Form.Label>
+                <input className="form-control" type="text" name="email" placeholder="janedoe@isfake.net (required)" onChange={onChange} required/>
+                <Form.Label htmlFor="password">Password: </Form.Label>
+                <input className="form-control" type="text" name="password" placeholder="Password must be at least 6 characters" onChange={onChange} required/>
+                <Button style={{ marginTop: "5px"}} variant="outline-dark" type="submit">Create Account</Button>
             </Form>
-            <p>Don't have an account? Click <a href="/register">here</a>!</p>
+            <p>Already have an account? Click <a href="/signin">here</a>!</p>
             {message ? <Message message={message} /> : null}
-        </div>
+        </Container>
     )
 }
 

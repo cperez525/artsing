@@ -13,7 +13,8 @@ const audioSchema = new Schema({
     audio_link: {
         type: String,
         required: true
-    }
+    },
+    language: {type: String}
 });
 
 const Audio = mongoose.model("Audio", audioSchema);

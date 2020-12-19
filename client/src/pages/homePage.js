@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState, useEffect, useContext} from "react";
+import {Container} from "react-bootstrap";
+import {AuthContext} from "../Context/AuthenticationCtxt";
 
-function HomePage() {
+
+
+function HomePage(props) {
 
     return (
 
-        <h1>Welcome Home!</h1>
+        <Container >
+            
+        </Container>
     )
 }
 

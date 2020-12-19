@@ -13,7 +13,8 @@ const videoSchema = new Schema({
     video_link: {
         type: String,
         required: "Please provide the youtube embedded link"
-    }
+    },
+    language: {type: String}
 });
 
 const Video = mongoose.model("Video", videoSchema);

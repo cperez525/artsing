@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Container, Nav, Form, FormControl, Button } from "react-bootstrap"
+import SearchForm from "../components/search/searchForm"
 
-function SearchPage() {
+
+function SearchPage(props) {
+
+    
+    
+
 
     return (
 
-        <h1>Welcome Home!</h1>
+        <Container>
+            <div>
+                <SearchForm />
+            </div>
+        </Container>
     )
 }
 

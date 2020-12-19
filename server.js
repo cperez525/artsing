@@ -22,8 +22,18 @@ if (process.env.NODE_ENV === "production") {
 app.use('/user', usersRouter);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/artsingtest", {useUnifiedTopology: true}, () => console.log("successfully connected to db"));
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/artsingtest", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+}
+).then(
+ ()=>{ console.log("Connected, yay!!")}
+).catch((err)=>{
+    console.log("ERROR:", err);
+ }
+);
 
 // Start the API server'
 app.listen(PORT, function() {

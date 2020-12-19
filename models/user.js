@@ -12,11 +12,11 @@ const userSchema = new Schema({
     },
     city: { type: String, required: "You must provide a city" },
     state: { type: String, required: "You must provide a state" },
-    school: { type: String, required: false },
+    school: { type: String, required: false, default: null },
     email: {
         type: String,
         unique: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+        match: [/.+@.+\..+/]
     },
     password: {
         type: String,
@@ -41,7 +41,9 @@ const userSchema = new Schema({
             ref: "Role"
         }
 
-    ]
+    ],
+    bio: { type: String, default: null },
+    headshot: { type: String, default: null }
 
 });
 
