@@ -9,6 +9,7 @@ const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
 const usersRouter = require("./routes/api");
 const PORT = process.env.PORT || 3001;
+const path = require("path");
 
 // Define middleware here
 app.use(cookieParser());
