@@ -101,18 +101,18 @@ function ProfilePage(props) {
 
                     <Col className="col-lg" >
                         <Table borderless> 
-                            <Nav className="justify-content-center" variant="tabs" style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
+                            <Nav className="justify-content-center" variant="tabs" activeKey={searchType.type} style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
                                 <Nav.Item>
-                                    <Nav.Link id="Bio" style={{ fontWeight: "inherit", fontFamily:"'Times New Roman'"}} onClick={handleNavClick}>Bio</Nav.Link>
+                                    <Nav.Link eventKey="Bio" id="Bio" style={{ fontWeight: "inherit", fontFamily:"'Times New Roman'"}} onClick={handleNavClick}>Bio</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="Roles" style={{ fontWeight: "lighter", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Roles</Nav.Link>
+                                    <Nav.Link eventKey="Roles" id="Roles" style={{ fontWeight: "lighter", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Roles</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="Audio" style={{ fontWeight: "bold", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Audio</Nav.Link>
+                                    <Nav.Link eventKey="Audio" id="Audio" style={{ fontWeight: "bold", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Audio</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link id="Video" style={{ fontWeight: "bolder", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Video</Nav.Link>
+                                    <Nav.Link eventKey="Video"  id="Video" style={{ fontWeight: "bolder", fontFamily:"'Times New Roman'" }} onClick={handleNavClick}>Video</Nav.Link>
                                 </Nav.Item>
                             </Nav>
 
