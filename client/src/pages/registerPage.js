@@ -54,35 +54,35 @@ function Register(props) {
     return (
         <Container>
             <Form onSubmit={onSubmit}>
-                <Form.Label htmlFor="first_name">First Name: </Form.Label>
-                <input className="form-control" type="text" name="first_name" placeholder="Jane (required)" onChange={onChange} required="You must provide a first name"/>
-                <Form.Label htmlFor="last_name">Last Name: </Form.Label>
-                <input className="form-control" type="text" name="last_name" placeholder="Doe (required)" onChange={onChange} required/>
-                <Form.Label>Voice Type:</Form.Label>
+                <Form.Label htmlFor="first_name" style={{fontFamily:"'Times New Roman'"}}>First Name: </Form.Label>
+                <input className="form-control" type="text" name="first_name" style={{fontFamily:"'Times New Roman'"}} placeholder="Jane (required)" onChange={onChange} required="You must provide a first name"/>
+                <Form.Label htmlFor="last_name" style={{fontFamily:"'Times New Roman'"}}>Last Name: </Form.Label>
+                <input className="form-control" type="text" name="last_name" style={{fontFamily:"'Times New Roman'"}} placeholder="Doe (required)" onChange={onChange} required/>
+                <Form.Label style={{fontFamily:"'Times New Roman'"}}>Voice Type:</Form.Label>
                 <Form.Control name="voice_type" as="select" onChange={onChange}>
                     <option></option>
-                    <option>Soprano</option>
-                    <option>Mezzo-soprano</option>
-                    <option>Contralto</option>
-                    <option>Countertenor</option>
-                    <option>Tenor</option>
-                    <option>Baritone</option>
-                    <option>Bass-Baritone</option>
-                    <option>Bass</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Soprano</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Mezzo-soprano</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Contralto</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Countertenor</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Tenor</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Baritone</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Bass-Baritone</option>
+                    <option style={{fontFamily:"'Times New Roman'"}}>Bass</option>
                 </Form.Control>
-                <Form.Label htmlFor="city">City: </Form.Label>
-                <input className="form-control" type="text" name="city" placeholder="Austin (required)" onChange={onChange} required />
-                <Form.Label htmlFor="state">State: </Form.Label>
-                <input className="form-control" type="text" name="state" placeholder="Texas (required)" onChange={onChange} required/>
-                <Form.Label htmlFor="password">School: </Form.Label>
-                <input className="form-control" type="text" name="password" placeholder="University of Houston (not required)" onChange={onChange}/>
-                <Form.Label htmlFor="email">Email Address: </Form.Label>
-                <input className="form-control" type="text" name="email" placeholder="janedoe@isfake.net (required)" onChange={onChange} required/>
-                <Form.Label htmlFor="password">Password: </Form.Label>
-                <input className="form-control" type="text" name="password" placeholder="Password must be at least 6 characters" onChange={onChange} required/>
-                <Button style={{ marginTop: "5px"}} variant="outline-dark" type="submit">Create Account</Button>
+                <Form.Label htmlFor="city" style={{fontFamily:"'Times New Roman'"}}>City: </Form.Label>
+                <input className="form-control" type="text" name="city" style={{fontFamily:"'Times New Roman'"}} placeholder="Austin (required)" onChange={onChange} required />
+                <Form.Label htmlFor="state" style={{fontFamily:"'Times New Roman'"}}>State: </Form.Label>
+                <input className="form-control" type="text" name="state" style={{fontFamily:"'Times New Roman'"}} placeholder="Texas (required)" onChange={onChange} required/>
+                <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>School: </Form.Label>
+                <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="password" placeholder="University of Houston (not required)" onChange={onChange}/>
+                <Form.Label htmlFor="email" style={{fontFamily:"'Times New Roman'"}}>Email Address: </Form.Label>
+                <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="email" placeholder="janedoe@isfake.net (required)" onChange={onChange} required/>
+                <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>Password: </Form.Label>
+                <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="password" placeholder="Password must be at least 6 characters" onChange={onChange} required/>
+                <Button style={{ marginTop: "5px", fontFamily:"'Times New Roman'"}} variant="outline-dark" type="submit">Create Account</Button>
             </Form>
-            <p>Already have an account? Click <a href="/signin">here</a>!</p>
+            <p style={{fontFamily:"'Times New Roman'"}}>Already have an account? Click <a href="/signin">here</a>!</p>
             {message ? <Message message={message} /> : null}
         </Container>
     )

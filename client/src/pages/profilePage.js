@@ -101,7 +101,7 @@ function ProfilePage(props) {
 
                     <Col className="col-lg" >
                         <Table borderless> 
-                            <Nav className="justify-content-center" variant="tabs" activeKey={searchType.type} style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
+                            <Nav className="justify-content-center" variant="tabs" activeKey={contentInView} style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
                                 <Nav.Item>
                                     <Nav.Link eventKey="Bio" id="Bio" style={{ fontWeight: "inherit", fontFamily:"'Times New Roman'"}} onClick={handleNavClick}>Bio</Nav.Link>
                                 </Nav.Item>

@@ -17,21 +17,18 @@ function SearchForm(props) {
         } else {
             setSearch({});
         }
-        console.log(searchType, search);
     };
 
     const onChangeSimple = (e) => {
 
         const { value } = e.target;
         setSearch(value);
-        console.log(search);
     };
 
     const onChangeAdvanced = (e) => {
 
         const { name, value } = e.target;
         setSearch({ ...search, [name]: value });
-        console.log(search)
     }
 
     const onSubmit = (e) => {
@@ -40,13 +37,11 @@ function SearchForm(props) {
         if (searchType.type === "simple") {
             ProfileService.simpleSearch(search).then(data => {
                 setSearchResults(data)
-                console.log(searchResults)
             })
         } else {
             ProfileService.advancedSearch(JSON.stringify(search)).then(res => {
 
                 setSearchResults(res.response)
-                console.log(searchResults)
             })
         }
     }
