@@ -32,6 +32,10 @@ function Register(props) {
         if(user.password.length < 6){
             return setMessage({messageBody: "Password must be at least 6 characters", messageError: true})
         }
+
+        if(user.voice_type === null || user.voice_type === "" || !user.voice_type){
+            return setMessage({messageBody:"You must choose a voice type", messageError: true})
+        }
         
         AuthService.register(user).then(data => {
 
@@ -56,14 +60,15 @@ function Register(props) {
                 <input className="form-control" type="text" name="last_name" placeholder="Doe (required)" onChange={onChange} required/>
                 <Form.Label>Voice Type:</Form.Label>
                 <Form.Control name="voice_type" as="select" onChange={onChange}>
-                    <option>soprano</option>
-                    <option>mezzo-soprano</option>
-                    <option>contralto</option>
-                    <option>countertenor</option>
-                    <option>tenor</option>
-                    <option>baritone</option>
-                    <option>bass-baritone</option>
-                    <option>bass</option>
+                    <option></option>
+                    <option>Soprano</option>
+                    <option>Mezzo-soprano</option>
+                    <option>Contralto</option>
+                    <option>Countertenor</option>
+                    <option>Tenor</option>
+                    <option>Baritone</option>
+                    <option>Bass-Baritone</option>
+                    <option>Bass</option>
                 </Form.Control>
                 <Form.Label htmlFor="city">City: </Form.Label>
                 <input className="form-control" type="text" name="city" placeholder="Austin (required)" onChange={onChange} required />

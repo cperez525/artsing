@@ -52,83 +52,79 @@ function SearchForm(props) {
     }
 
     return (
-        <Container>
-            <Nav variant="tabs" style={{ borderBottom: "none" }} activeKey={searchType.type}>
+        <Container fluid>
+            <Nav variant="tabs" style={{ borderBottom: "none", width:"100%" }} activeKey={searchType.type}>
                 <Nav.Item>
-                    <Nav.Link eventKey="simple" id="simple" style={searchType.type === "simple" ? { color: "black", fontWeight: "bolder" } : { color: "blue", fontWeight: "bolder" }} onClick={handleClick}>Simple Search</Nav.Link>
+                    <Nav.Link eventKey="simple" id="simple" style={searchType.type === "simple" ? { color: "black", fontWeight: "bolder", fontFamily:"'Times New Roman'" } : { color: "blue", fontWeight: "bolder", fontFamily:"'Times New Roman'" }} onClick={handleClick}>Simple Search</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="advanced" id="advanced" style={searchType.type === "advanced" ? { color: "black", fontWeight: "bolder" } : { color: "blue", fontWeight: "bolder" }} onClick={handleClick}>Advanced Search</Nav.Link>
+                    <Nav.Link eventKey="advanced" id="advanced" style={searchType.type === "advanced" ? { color: "black", fontWeight: "bolder", fontFamily:"'Times New Roman'" } : { color: "blue", fontWeight: "bolder", fontFamily:"'Times New Roman'" }} onClick={handleClick}>Advanced Search</Nav.Link>
                 </Nav.Item>
             </Nav>
-            <Form onSubmit={onSubmit}>
+            <Form style={{width:"50vw"}} onSubmit={onSubmit}>
                 {searchType.type === "simple" ?
                     <div>
-                        <FormControl style={{ marginTop: "5px" }} type="text" placeholder="Search for a first or last name, voice type, city, or state" onChange={onChangeSimple} />
+                        <FormControl style={{ marginTop: "5px", fontFamily:"'Times New Roman'" }} type="text" placeholder="Search for a first or last name, voice type, city, or state" onChange={onChangeSimple} />
                     </div> :
                     <div>
                         <Row>
                             <Col>
-                                <FormLabel>First Name</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>First Name</FormLabel>
                                 <input className="form-control" name="first_name" type="text" onChange={onChangeAdvanced} />
                             </Col>
                             <Col>
-                                <FormLabel>Last Name</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>Last Name</FormLabel>
                                 <input className="form-control" name="last_name" type="text" onChange={onChangeAdvanced} />
                             </Col>
                         </Row>
-                        <FormLabel>Voice Type</FormLabel>
+                        <FormLabel style={{fontFamily:"'Times New Roman'"}}>Voice Type</FormLabel>
                         <Form.Control name="voice_type" as="select" onChange={onChangeAdvanced}>
-                            <option>soprano</option>
-                            <option>mezzo-soprano</option>
-                            <option>contralto</option>
-                            <option>countertenor</option>
-                            <option>tenor</option>
-                            <option>baritone</option>
-                            <option>bass-baritone</option>
-                            <option>bass</option>
+                            <option></option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Soprano</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Mezzo-Soprano</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Contralto</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Countertenor</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Tenor</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Baritone</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Bass-Baritone</option>
+                            <option style={{fontFamily:"'Times New Roman'"}}>Bass</option>
                         </Form.Control>
                         <Row>
                             <Col>
-                                <FormLabel>City</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>City</FormLabel>
                                 <input className="form-control" name="city" type="text" onChange={onChangeAdvanced} />
                             </Col>
                             <Col>
-                                <FormLabel>State</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>State</FormLabel>
                                 <input className="form-control" name="state" type="text" onChange={onChangeAdvanced} />
                             </Col>
                         </Row>
                     </div>
                 }
-                <Button type="submit" variant="outline-dark" style={{ marginTop: "5px" }}>Search</Button>
+                <Button type="submit" variant="outline-dark" style={{ marginTop: "5px", fontFamily:"'Times New Roman'"}}>Search</Button>
             </Form>
 
             <Table striped hover style={{ width: "100%" }}>
                 <tbody style={{width: "100%"}}>
                     {searchResults === undefined || null ?
                         <tr style={{marginTop: "3px"}}>
-                            <td>No Results Found</td>
+                            <td style={{fontFamily:"'Times New Roman'"}}>No Results Found</td>
                         </tr> :
 
                         searchResults.map(artist =>
                             <Link style={{ color: "black" }} to={"/profile=" + artist._id}>
 
-                                <tr style={{ width: "100%", paddingBottom: "4px", marginTop: "3px", marginBottom: '3px', display: "table" }} className="text-center" key={artist._id} id={artist.id}>
+                                <tr style={{width: "50vw", paddingBottom: "4px", marginTop: "3px", marginBottom: '3px', display: "table" }} className="text-center" key={artist._id} id={artist.id}>
 
-                                    <td className="text-center">{artist.first_name}</td>
+                                    <td><img src={artist.headshot ? artist.headshot : "https://sheetmusicplus.files.wordpress.com/2015/12/circle_of_fifths_deluxe_4-svg.png"} style={{width:"40px", height:"50px"}} thumbnail /></td>
 
-                                    <td className="text-center">{artist.last_name}</td>
+                                    <td style={{verticalAlign:"middle", fontFamily:"'Times New Roman'"}}>{artist.first_name} {artist.last_name}, {artist.voice_type}</td>
 
-                                    <td className="text-center">{artist.voice_type}</td>
-
-                                    <td className="text-center">{artist.city}</td>
-
-                                    <td className="text-center">{artist.state}</td>
+                                    <td style={{verticalAlign:"middle", fontFamily:"'Times New Roman'"}}>{artist.city}, {artist.state}</td>
 
                                 </tr>
 
                             </Link>
-
                         )
                     }
                 </tbody>

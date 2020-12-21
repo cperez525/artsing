@@ -16,9 +16,9 @@ function NavBar(props) {
             </Link>
             <Navbar.Toggle aria-controls="basic-navbar-nav" className="justify-content-end navbar-dark" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="justify-content-end" style={{ width: "100%" }}>
-                    <Nav.Link style={{ color: "whitesmoke" }} href={isAuthenticated ? "/profile=" + user._id : "/"}>Home</Nav.Link>
-                    <Nav.Link style={{ color: "whitesmoke" }} href="/search">Search Artists</Nav.Link>
+                <Nav className="justify-content-end" style={{ width: "100%", fontFamily:"'Times New Roman'" }}>
+                    <Nav.Link style={{ color: "whitesmoke", fontFamily:"'Times New Roman'" }} href={isAuthenticated ? "/profile=" + user._id : "/"}>Home</Nav.Link>
+                    <Nav.Link style={{ color: "whitesmoke", fontFamily: "'Times New Roman" }} href="/search">Search Artists</Nav.Link>
                     { isAuthenticated ? <SignOut /> : <SignIn />}
                 </Nav>
             </Navbar.Collapse>

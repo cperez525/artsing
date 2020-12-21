@@ -29,6 +29,17 @@ usersRouter.post('/register', (req, res) => {
     });
 });
 
+usersRouter.put('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const newData = req.body;
+    User.update({ _id: req.user._id }, { $set: newData }).exec((err, document) => {
+        if (err)
+            return res.status(500).json({ message: { messageBody: "Error has occured.", messageError: true } });
+        else {
+            return res.status(200).json({ hello: "meow" + req.user._id, yo: newData, document, message: { messageBody: "Update was successful!", messageError: true } })
+        }
+    })
+});
+
 usersRouter.get('/profile=:id', (req, res) => {
     User.findById({ _id: req.params.id }).exec((err, document) => {
         if (err)
@@ -65,7 +76,7 @@ usersRouter.get('/advancedsearch=:search', (req, res) => {
         if (err || document.length === 0) {
             return res.json({ message: { messageBody: "No results found!", messageError: true } })
         }
-        res.status(200).json({response: document})
+        res.status(200).json({ response: document })
     })
 })
 
@@ -84,8 +95,8 @@ usersRouter.post('/roles', passport.authenticate('jwt', { session: false }), (re
     })
 });
 
-usersRouter.get('/roles', (req, res) => {
-    User.findById({ _id: req.user._id }).populate("roles").exec((err, document) => {
+usersRouter.get('/roles/profile=:id', (req, res) => {
+    User.findById({ _id: req.params.id }).populate("roles").exec((err, document) => {
         if (err)
             return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
         res.status(200).json({ roles: document.roles, authenticated: true })
@@ -107,8 +118,31 @@ usersRouter.post('/videos', passport.authenticate('jwt', { session: false }), (r
     })
 });
 
-usersRouter.get('/videos', (req, res) => {
-    User.findById({ _id: req.user._id }).populate("video_recordings").exec((err, document) => {
+usersRouter.get('/videos/profile=:id', (req, res) => {
+    User.findById({ _id: req.params.id }).populate("video_recordings").exec((err, document) => {
+        if (err)
+            return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
+        res.status(200).json({ video_recordings: document.video_recordings, authenticated: true })
+    });
+});
+
+// Audio Routes
+usersRouter.post('/audios', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const audio = new Audio(req.body);
+    audio.save((err) => {
+        if (err)
+            return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
+        req.user.videos_recordings.push(video);
+        req.user.save((err) => {
+            if (err)
+                return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
+            res.status(200).json({ message: { messageBody: "Audio recording successfully added!", messageError: false } })
+        })
+    })
+});
+
+usersRouter.get('/audios/profile=:id', (req, res) => {
+    User.findById({ _id: req.params.id }).populate("audio_recordings").exec((err, document) => {
         if (err)
             return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
         res.status(200).json({ video_recordings: document.video_recordings, authenticated: true })

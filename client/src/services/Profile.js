@@ -4,6 +4,36 @@ export default {
                 return res.json().then(data => data)
             })
     },
+    
+    updateUser: (body) => {
+        return fetch('/user/profile', {
+            method: "PUT",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => data);
+    },
+
+    getRoles: (id) => {
+        return fetch('/user/roles/profile=' + id).then(res => {
+                return res.json().then(data => data)
+            })
+    },
+
+
+    getAudio: (id) => {
+        return fetch('/user/audios/profile=' + id).then(res => {
+                return res.json().then(data => data)
+            })
+    },
+
+    getVideo: (id) => {
+        return fetch('/user/videos/profile=' + id).then(res => {
+                return res.json().then(data => data)
+            })
+    },
 
     simpleSearch: (search) => {
         return fetch('/user/simplesearch=' + search).then(res => {

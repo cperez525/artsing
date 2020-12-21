@@ -7,7 +7,7 @@ const userSchema = new Schema({
     last_name: { type: String, required: "You must provide a last Name" },
     voice_type: {
         type: String,
-        enum: ["soprano", "mezzo-soprano", "contralto", "countertenor", "tenor", "baritone", "bass-baritone", "bass"],
+        enum: ["Soprano", "Mezzo-Soprano", "Contralto", "Countertenor", "Tenor", "Baritone", "Bass-Baritone", "Bass"],
         required: "You must designate a voice type"
     },
     city: { type: String, required: "You must provide a city" },

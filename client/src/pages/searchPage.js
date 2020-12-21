@@ -5,16 +5,16 @@ import SearchForm from "../components/search/searchForm"
 
 function SearchPage(props) {
 
-    
-    
+
+
 
 
     return (
 
-        <Container>
-            <div>
-                <SearchForm />
-            </div>
+        <Container style={{marginRight:"25vw", marginLeft:"25vw"}}>
+
+            <SearchForm />
+
         </Container>
     )
 }
