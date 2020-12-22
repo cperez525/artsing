@@ -46,11 +46,7 @@ function Edit(props) {
     useEffect(() => {
         if (audioToAdd.audio_link) {
             ProfileService.addAudio(audioToAdd).then((res) => {
-                if (res.message.messageError === false) {
-                    setMessage({ messageBody: "Upload successful!", messageError: false })
-                } else {
-                    setMessage({messageBody: res.message.messageBody, messageError: true})
-                }
+                setMessage({messageBody: "Upload Successful!", messageError: false})
             }).then(() => {
                 setAudioToAdd({})
             })
@@ -120,7 +116,7 @@ function Edit(props) {
             if (res.message.messageError === false) {
                 setMessage({ messageBody: "Upload successful!", messageError: false })
             } else {
-                setMessage({messageBody: res.message.messageBody, messageError: true})
+                setMessage({messageBody: "Something went wrong. Please try again later", messageError: true})
             }
         })
     }
@@ -165,10 +161,7 @@ function Edit(props) {
     const onAudioSubmit = (e) => {
         e.preventDefault()
 
-        CloudinaryService.uploadVideo(cloudinaryData).then((err, res) => {
-            if(err){
-                setMessage({messageBody:err, messageError:true})
-            }
+        CloudinaryService.uploadVideo(cloudinaryData).then(res => {
             setAudioToAdd({ ...audioToAdd, audio_link: res.secure_url })
         })
     }

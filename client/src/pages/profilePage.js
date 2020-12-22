@@ -14,7 +14,7 @@ function ProfilePage(props) {
     const [audioViewed, setAudioViewed] = useState([])
     const [contentInView, setContentInView] = useState("Bio")
     const authContext = useContext(AuthContext)
-    const [user, setUserID] = useState(authContext.user)
+    const [user] = useState(authContext.user)
     const [isAuthenticated, setIsAuthenticated] = useState(authContext.isAuthenticated)
 
     let currentArtist = window.location.href.split("=")[1];
@@ -159,7 +159,7 @@ function ProfilePage(props) {
                                 )
 
                                 :
-                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
+                                <Container style={{ marginLeft: "9vw", marginRight: "6vw" }}>
                                     <tr className="Video trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
                                         <td>Videos coming soon!</td>
                                     </tr>
