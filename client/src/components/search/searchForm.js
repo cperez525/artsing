@@ -64,15 +64,15 @@ function SearchForm(props) {
                     <div>
                         <Row>
                             <Col>
-                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>First Name</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>First Name: </FormLabel>
                                 <input className="form-control" style={{fontFamily:"'Times New Roman'"}} name="first_name" type="text" onChange={onChangeAdvanced} />
                             </Col>
                             <Col>
-                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>Last Name</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>Last Name: </FormLabel>
                                 <input className="form-control" style={{fontFamily:"'Times New Roman'"}} name="last_name" type="text" onChange={onChangeAdvanced} />
                             </Col>
                         </Row>
-                        <FormLabel style={{fontFamily:"'Times New Roman'"}}>Voice Type</FormLabel>
+                        <FormLabel style={{fontFamily:"'Times New Roman'"}}>Voice Type: </FormLabel>
                         <Form.Control name="voice_type" as="select" style={{fontFamily:"'Times New Roman'"}} onChange={onChangeAdvanced}>
                             <option></option>
                             <option style={{fontFamily:"'Times New Roman'"}}>Soprano</option>
@@ -86,11 +86,11 @@ function SearchForm(props) {
                         </Form.Control>
                         <Row>
                             <Col>
-                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>City</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>City: </FormLabel>
                                 <input className="form-control" name="city" type="text" style={{fontFamily:"'Times New Roman'"}} onChange={onChangeAdvanced} />
                             </Col>
                             <Col>
-                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>State</FormLabel>
+                                <FormLabel style={{fontFamily:"'Times New Roman'"}}>State: </FormLabel>
                                 <input className="form-control" name="state" type="text" style={{fontFamily:"'Times New Roman'"}} onChange={onChangeAdvanced} />
                             </Col>
                         </Row>

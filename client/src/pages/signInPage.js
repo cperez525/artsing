@@ -27,12 +27,10 @@ function SignIn(props) {
         AuthService.login(user).then(data => {
 
             const { isAuthenticated, user, message } = data;
-            console.log(data)
 
             if (isAuthenticated) {
                 authContext.setUser(user)
                 authContext.setIsAuthenticated(isAuthenticated);
-                console.log(user)
                 history.push('/profile=' + user._id)
             } else {
                 setMessage({ messageBody: "Login credentials are incorrect", messageError: true });

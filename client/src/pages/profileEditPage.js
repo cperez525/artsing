@@ -273,7 +273,7 @@ function Edit(props) {
                     </Form>
 
                     <Form id="Headshot" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onPictureSubmit}>
-                        <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Headshot : </Form.Label>
+                        <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Headshot: </Form.Label>
                         <Form.File style={{ fontFamily: "'Times New Roman'" }} name="headshot" onChange={onMediaChange} required />
                         <Button style={{ marginTop: "5px", fontFamily: "'Times New Roman'" }} variant="outline-dark" type="submit">Submit</Button>
                         {message ? <Message message={message} /> : null}
