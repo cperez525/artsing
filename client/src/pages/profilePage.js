@@ -14,7 +14,7 @@ function ProfilePage(props) {
     const [audioViewed, setAudioViewed] = useState([])
     const [contentInView, setContentInView] = useState("Bio")
     const authContext = useContext(AuthContext)
-    const [user] = useState(authContext.user)
+    const [user, setUserID] = useState(authContext.user)
     const [isAuthenticated, setIsAuthenticated] = useState(authContext.isAuthenticated)
 
     let currentArtist = window.location.href.split("=")[1];

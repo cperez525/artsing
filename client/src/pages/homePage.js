@@ -10,7 +10,7 @@ function HomePage(props) {
 
         <Container style={{ fontFamily: "'Times New Roman", textAlign: "center" }}>
             <h1>Welcome to singID!</h1>
-            <h4>A platform designed for you to freely showcase your talent!</h4>
+            <h4>A platform designed for you to freely showcase your voice!</h4>
 
             <Container style={{ fontFamily: "'Times New Roman", textAlign: "center", boxShadow: "2px 2px 15px gray, inset 0em -1em 5em 2em rgba(0,0,0,0.125)", height: "50vh", width: "50vw", marginTop: "3vh", padding: "2vh" }}>
                 <div>
