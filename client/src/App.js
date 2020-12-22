@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useContext } from "react"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import NavBar from "./components/navbar/Navbar"
 import HomePage from "./pages/homePage"
@@ -8,7 +8,8 @@ import ProfilePage from "./pages/profilePage"
 import Register from "./pages/registerPage"
 import Edit from "./pages/profileEditPage"
 
-function App() {
+function App(props) {
+
 
   return (
     <Router>
