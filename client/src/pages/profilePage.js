@@ -31,13 +31,13 @@ function ProfilePage(props) {
     }, [contentInView])
 
     useEffect(() => {
-        console.log(user._id, currentArtist)
-        if (user._id === currentArtist) {
-            setCanEdit(true)
-        } else {
-            setCanEdit(false)
+        if (user && user !== null) {
+            if (user._id === currentArtist) {
+                setCanEdit(true)
+            } else {
+                setCanEdit(false)
+            }
         }
-        console.log(canEdit)
 
         ProfileService.getRoles(currentArtist).then(res => {
             setRolesViewed(res.roles)
@@ -80,12 +80,12 @@ function ProfilePage(props) {
 
 
     return (
-        <Container className="justify-content-center" style={{border:"solid 3px black", marginTop: "2vh", marginBottom:"2vh", paddingTop:"5vh", paddingBottom:"5vh", borderRadius:"20px", boxShadow:"10px 10px 30px gray"}}>
+        <Container className="justify-content-center" style={{ border: "solid 3px black", marginTop: "2vh", marginBottom: "2vh", paddingTop: "5vh", paddingBottom: "5vh", borderRadius: "20px", boxShadow: "10px 10px 30px gray" }}>
             <Row style={{ maxWidth: "100vw" }}>
                 <Col>
                 </Col>
                 <Col>
-                    <div className="justify-content-center text-center" style={{ margin: "2px", fontFamily: "'Times New Roman'", fontSize: "1.4vw", fontWeight: "900", boxShadow: "8px 8px 10px gray, inset 0em 1em 1em rgba(0,0,0,0.125)", borderRadius: "5px", width: "fit-content", padding:"1vh" }}>
+                    <div className="justify-content-center text-center" style={{ margin: "2px", fontFamily: "'Times New Roman'", fontSize: "1.4vw", fontWeight: "900", boxShadow: "8px 8px 10px gray, inset 0em 1em 1em rgba(0,0,0,0.125)", borderRadius: "5px", width: "fit-content", padding: "1vh" }}>
                         <p style={{ marginBottom: "0" }}>{artistViewed.first_name} {artistViewed.last_name}, {artistViewed.voice_type}</p>
                         <p style={{ marginBottom: "0" }}>{artistViewed.city}, {artistViewed.state}</p>
                     </div>
@@ -102,7 +102,7 @@ function ProfilePage(props) {
 
 
                     <Col className="col-lg" >
-                        <Table borderless className="table-striped" style={{ boxShadow: "8px 8px 30px gray, inset 0em 0em 1em rgba(0,0,0,0.025)", maxHeight:"400px", overflow:"scroll", borderRadius:"40px" }}>
+                        <Table borderless className="table-striped" style={{ boxShadow: "8px 8px 30px gray, inset 0em 0em 1em rgba(0,0,0,0.025)", maxHeight: "400px", overflow: "scroll", borderRadius: "40px" }}>
                             <Nav className="justify-content-center" variant="tabs" activeKey={contentInView} style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
                                 <Nav.Item>
                                     <Nav.Link eventKey="Bio" id="Bio" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Bio</Nav.Link>
@@ -123,13 +123,15 @@ function ProfilePage(props) {
                                     <td>{artistViewed.bio}</td>
                                 </tr>
                                 :
-                                <tr className="Bio trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                    <td>Bio coming soon!</td>
-                                </tr>
+                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
+                                    <tr className="Bio trow text-center" style={{ fontFamily: "'Times New Roman'" }}>
+                                        <td>Bio coming soon!</td>
+                                    </tr>
+                                </Container>
                             }
 
-                            {rolesViewed ?
-                                <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>
+                            {rolesViewed.length > 0 ?
+                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
                                     {rolesViewed.map(Role =>
                                         <tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
                                             <td>{Role.character_name}</td>
@@ -140,42 +142,47 @@ function ProfilePage(props) {
 
                                 </Container>
                                 :
-                                < tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                    roles
-                                </tr>
+                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
+                                    < tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
+                                        <td>Roles coming soon!</td>
+                                    </tr>
+                                </Container>
                             }
 
-                            {videoViewed ?
+                            {videoViewed.length > 0 ?
 
                                 videoViewed.map(Video =>
-                                    <tr className="Video trow" style={{ display: "none", fontFamily: "'Times New Roman'", fontWeight:"bold", marginRight:"6vw", marginLeft:"6vw", maxWidth:"300px", maxHeight:"300px"}}>
+                                    <tr className="Video trow" style={{ display: "none", fontFamily: "'Times New Roman'", fontWeight: "bold", marginRight: "6vw", marginLeft: "6vw", maxWidth: "300px", maxHeight: "300px" }}>
                                         <iframe title={Video.song_name} src={Video.video_link} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="true"></iframe>
                                         <td>{Video.song_name} ({Video.song_composer})</td>
                                     </tr>
                                 )
 
                                 :
-                                <tr className="Video trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                    <td>Videos coming soon!</td>
-                                </tr>
+                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
+                                    <tr className="Video trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
+                                        <td>Videos coming soon!</td>
+                                    </tr>
+                                </Container>
                             }
 
-                            {audioViewed ?
+                            {audioViewed.length > 0 ?
 
-                                audioViewed.map(Recording => 
-                                    <tr className="Audio trow" style={{ display: "none", fontFamily: "'Times New Roman'", marginLeft:"20%", marginRight:"20%" }}>
+                                audioViewed.map(Recording =>
+                                    <tr className="Audio trow" style={{ display: "none", fontFamily: "'Times New Roman'", marginLeft: "20%", marginRight: "20%" }}>
                                         <audio controls controlsList="nodownload" src={Recording.audio_link}>Your browser doesn't support this audio player</audio>
                                         <td>{Recording.song_name} ({Recording.song_composer})</td>
                                     </tr>)
                                 :
-                                <tr className="Audio trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                    <td>Audio recordings coming soon!</td>
-                                </tr>
+                                <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>
+                                    <tr className="Audio trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
+                                        <td>Audio recordings coming soon!</td>
+                                    </tr>
+                                </Container>
                             }
 
                         </Table>
                     </Col>
-
                 </Container>
             </Jumbotron>
         </Container >

@@ -4,6 +4,7 @@ import { AuthContext } from '../../Context/AuthenticationCtxt'
 import { Nav, Navbar } from "react-bootstrap"
 import SignIn from './signInOption'
 import SignOut from './signOutOption'
+import './navbar.css'
 
 function NavBar(props) {
 
@@ -18,7 +19,7 @@ function NavBar(props) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="justify-content-end" style={{ width: "100%", fontFamily:"'Times New Roman'" }}>
                     {isAuthenticated ? 
-                    <Nav.Link className="navBtn" style={{fontFamily:"'Times New Roman'" }} href={"/profileedit=" + user._id}>Edit Profile</Nav.Link>
+                    <Nav.Link className="navBtn" style={{color:"whitesmoke", fontFamily:"'Times New Roman'" }} href={"/profileedit=" + user._id}>Edit Profile</Nav.Link>
                     :
                     null}
                     <Nav.Link className="navBtn" style={{ color: "whitesmoke", fontFamily:"'Times New Roman'" }} href={isAuthenticated ? "/profile=" + user._id : "/"}>Home</Nav.Link>

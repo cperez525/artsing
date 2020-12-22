@@ -101,7 +101,7 @@ function SearchForm(props) {
 
             <Table striped hover style={{ width:"50vw", boxShadow:"2px 2px 12px gray" }}>
                 <tbody style={{width: "100%"}}>
-                    {searchResults === undefined || searchResults ===null || searchResults.length === 0 ?
+                    {!searchResults ?
                         <Alert className="alert-warning" style={{fontFamily:"'Times New Roman'", fontWeight:"bold", marginBottom:"0"}}>No Results Found</Alert>
                         :
                         searchResults.map(artist =>
