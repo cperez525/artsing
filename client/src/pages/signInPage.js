@@ -11,7 +11,6 @@ function SignIn(props) {
 
     const [message, setMessage] = useState(null);
     const authContext = useContext(AuthContext);
-    const { isAuthenticated } = authContext
     const [user, setUser] = useState(authContext.user);
 
     const history = useHistory();
@@ -24,10 +23,6 @@ function SignIn(props) {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        // if(isAuthenticated){
-        //     return setMessage({messageBody: "You are already signed in.", messageError: true})
-        // }
 
         AuthService.login(user).then(data => {
 

@@ -6,16 +6,6 @@ import { AuthContext } from "../Context/AuthenticationCtxt";
 
 function HomePage(props) {
 
-    const {user, isAuthenticated} = useContext(AuthContext)
-
-    useEffect(() => {
-
-        if(isAuthenticated) {
-
-            window.location.replace(window.location.href + "profile=" + user._id)
-        }
-    },[])
-
     return (
 
         <Container style={{ fontFamily: "'Times New Roman", textAlign: "center" }}>
