@@ -131,7 +131,7 @@ function ProfilePage(props) {
                             }
 
                             {rolesViewed.length > 0 ?
-                                <Container style={{ marginLeft: "8vw", marginRight: "6vw" }}>
+                                <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>
                                     {rolesViewed.map(Role =>
                                         <tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
                                             <td>{Role.character_name}</td>
