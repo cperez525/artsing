@@ -41,19 +41,15 @@ function ProfilePage(props) {
 
         ProfileService.getRoles(currentArtist).then(res => {
             setRolesViewed(res.roles)
-            console.log(res.roles)
         }).then(() => {
             ProfileService.getAudio(currentArtist).then(res => {
                 setAudioViewed(res.audio_recordings)
-                console.log(res.audio_recordings)
             }).then(() => {
                 ProfileService.getVideo(currentArtist).then(res => {
                     setVideoViewed(res.video_recordings)
-                    console.log(res.video_recordings)
                 })
             })
         })
-        console.log(rolesViewed.roles, audioViewed.audio_recordings, videoViewed.video_recordings)
     }, [artistViewed])
 
     const handleNavClick = (e) => {
@@ -61,7 +57,6 @@ function ProfilePage(props) {
         const { id } = e.target
 
         setContentInView(id)
-        console.log(id)
     }
 
     const setRowsVisible = () => {
