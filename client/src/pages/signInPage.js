@@ -25,9 +25,9 @@ function SignIn(props) {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if(isAuthenticated){
-            return setMessage({messageBody: "You are already signed in.", messageError: true})
-        }
+        // if(isAuthenticated){
+        //     return setMessage({messageBody: "You are already signed in.", messageError: true})
+        // }
 
         AuthService.login(user).then(data => {
 
