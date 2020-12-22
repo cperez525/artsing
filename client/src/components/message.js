@@ -6,7 +6,7 @@ function Message(props){
 
     return (
 
-        <Alert variant={props.message.messageError ? "danger" : "success"} >
+        <Alert style={{fontWeight:"bolder", fontFamily:"'Times New Roman'"}} variant={props.message.messageError ? "danger" : "success"} >
             {props.message.messageBody}
         </Alert>
     )
