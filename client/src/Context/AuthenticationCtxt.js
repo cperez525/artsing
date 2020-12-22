@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import AuthService from "../services/Authentication";
+import FadeIn from "react-fade-in";
 
 export const AuthContext = createContext();
 
@@ -16,10 +17,16 @@ export default ({ children }) => {
         })
     }, [])
 
+
     return (
 
         <div>
-            {!isLoaded ? <h1>Loading</h1> :
+            {!isLoaded ?
+                <FadeIn>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h1>Gathering data! Bear with us!</h1>
+                    </div>
+                </FadeIn> :
                 <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated }}>
                     {children}
                 </AuthContext.Provider>
