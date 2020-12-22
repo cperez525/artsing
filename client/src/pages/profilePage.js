@@ -126,12 +126,10 @@ function ProfilePage(props) {
                             }
 
                             {rolesViewed.length > 0 ?
-                                <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>
+                                <Container style={{ width:"50%" }}>
                                     {rolesViewed.map(Role =>
-                                        <tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                            <td>{Role.character_name}</td>
-                                            <td>{Role.opera_show_name}</td>
-                                            <td>{Role.composer}</td>
+                                        <tr className="Roles trow text-wrap" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
+                                            <td>{Role.character_name} ({Role.opera_show_name} - {Role.composer}) </td>
                                         </tr>
                                     )}
 
