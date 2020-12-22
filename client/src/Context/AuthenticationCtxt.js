@@ -21,12 +21,13 @@ export default ({ children }) => {
     return (
 
         <div>
-            {!isLoaded ?
-                <FadeIn>
-                    <div class="d-flex justify-content-center align-items-center">
-                        <h1>Gathering data! Bear with us!</h1>
-                    </div>
-                </FadeIn> :
+            {!isLoaded ? <h1>loading...</h1>
+                // <FadeIn>
+                //     <div class="d-flex justify-content-center align-items-center">
+                //         <h1>Gathering data! Bear with us!</h1>
+                //     </div>
+                // </FadeIn> 
+                :
                 <AuthContext.Provider value={{ user, setUser, isAuthenticated, setIsAuthenticated }}>
                     {children}
                 </AuthContext.Provider>
