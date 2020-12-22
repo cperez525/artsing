@@ -18,7 +18,7 @@ function SignOut(){
 
     return (
 
-        <Nav.Link style={{ color: "whitesmoke" }} href="/signin" onClick= {LogoutHandler}>Sign Out</Nav.Link>
+        <Nav.Link className="navBtn" style={{ color: "whitesmoke" }} href="/signin" onClick= {LogoutHandler}>Sign Out</Nav.Link>
     )
 }
 

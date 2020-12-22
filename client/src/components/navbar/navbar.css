@@ -1,0 +1,8 @@
+.navBtn:hover {
+    transition: all .3s ease-in-out;
+    color: red
+}
+
+.navBtn {
+    transition: all .3s ease-in-out;
+}

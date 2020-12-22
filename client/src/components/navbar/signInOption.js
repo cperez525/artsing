@@ -5,7 +5,7 @@ function SignIn(){
 
     return (
 
-        <Nav.Link style={{ color: "whitesmoke" }} href="/signin">Sign In</Nav.Link>
+        <Nav.Link className="navBtn" style={{ color: "whitesmoke" }} href="/signin">Sign In</Nav.Link>
     )
 }
 

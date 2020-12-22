@@ -1,15 +1,15 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const JwtStrategy = require("passport-jwt").Strategy;
-const User = require("./models/user");
+const passport = require("passport")
+const LocalStrategy = require("passport-local").Strategy
+const JwtStrategy = require("passport-jwt").Strategy
+const User = require("./models/user")
 
 
 const cookieExtractor = (req) => {
-    let token = null;
+    let token = null
     if (req && req.cookies) {
-        token = req.cookies["access_token"];
+        token = req.cookies["access_token"]
     }
-    return token;
+    return token
 }
 
 // authorize user to ensure user can only edit correct information
@@ -18,17 +18,17 @@ passport.use(new JwtStrategy({
     secretOrKey: "crisperez"
 }, (payload, done) => {
     User.findById({ _id: payload.sub }, (err, user) => {
-        if (err) return done(err, false);
+        if (err) return done(err, false)
 
         if (user) {
             return done(null, user)
         } else {
             return done(null, false)
-        };
+        }
 
 
     })
-}));
+}))
 
 // authenticate user by email address and password
 passport.use(new LocalStrategy(
@@ -39,12 +39,12 @@ passport.use(new LocalStrategy(
     User.findOne({ email: email }, (err, user) => {
 
         // database issue
-        if (err) console.log(err);
+        if (err) console.log(err)
 
         // no such user exists in database
-        if (!user) return done(null, false);
+        if (!user) return done(null, false)
 
         // user email matches, check if password matches
-        user.comparePassword(password, done);
-    });
+        user.comparePassword(password, done)
+    })
 }))

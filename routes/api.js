@@ -26,19 +26,19 @@ usersRouter.post('/register', (req, res) => {
                 }
             })
         }
-    });
-});
+    })
+})
 
 usersRouter.put('/profile', passport.authenticate('jwt', { session: false }), (req, res) => {
-    const newData = req.body;
+    const newData = req.body
     User.update({ _id: req.user._id }, { $set: newData }).exec((err, document) => {
         if (err)
-            return res.status(500).json({ message: { messageBody: "Error has occured.", messageError: true } });
+            return res.status(500).json({ message: { messageBody: "Error has occured.", messageError: true } })
         else {
             return res.status(200).json({ message: { messageBody: "Update was successful!", messageError: false } })
         }
     })
-});
+})
 
 usersRouter.get('/profile=:id', (req, res) => {
     User.findById({ _id: req.params.id }).exec((err, document) => {

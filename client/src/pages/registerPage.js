@@ -52,7 +52,7 @@ function Register(props) {
     }
 
     return (
-        <Container>
+        <Container style={{width:"50vw", marginTop:"1vh", marginBottom:"1vh", boxShadow:"2px 2px 30px", borderRadius:"8px" ,padding:"2vh"}}>
             <Form onSubmit={onSubmit}>
                 <Form.Label htmlFor="first_name" style={{fontFamily:"'Times New Roman'"}}>First Name: </Form.Label>
                 <input className="form-control" type="text" name="first_name" style={{fontFamily:"'Times New Roman'"}} placeholder="Jane (required)" onChange={onChange} required="You must provide a first name"/>
@@ -81,9 +81,10 @@ function Register(props) {
                 <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>Password: </Form.Label>
                 <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="password" placeholder="Password must be at least 6 characters" onChange={onChange} required/>
                 <Button style={{ marginTop: "5px", fontFamily:"'Times New Roman'"}} variant="outline-dark" type="submit">Create Account</Button>
+                {message ? <Message message={message} /> : null}
             </Form>
             <p style={{fontFamily:"'Times New Roman'"}}>Already have an account? Click <a href="/signin" style={{fontWeight:"bold"}}>here</a>!</p>
-            {message ? <Message message={message} /> : null}
+            
         </Container>
     )
 }

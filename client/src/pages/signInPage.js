@@ -42,16 +42,17 @@ function SignIn(props) {
     }
 
     return (
-        <Container>
+        <Container style={{width:"50vw", height:"50vh", marginTop:"18vh", marginBottom:"20vh", boxShadow:"2px 2px 30px", borderRadius:"8px" ,padding:"5vh"}}>
             <Form onSubmit={onSubmit}>
                 <Form.Label htmlFor="email" style={{fontFamily:"'Times New Roman'"}}>Email Address: </Form.Label>
                 <input className="form-control" type="text" name="email" placeholder="Email Address" style={{fontFamily:"'Times New Roman'"}} onChange={onChange} required/>
                 <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>Password: </Form.Label>
                 <input className="form-control" type="password" name="password" placeholder="Password" style={{fontFamily:"'Times New Roman'"}} onChange={onChange} required/>
                 <Button style={{ marginTop: "5px", fontFamily:"'Times New Roman" }} variant="outline-dark" type="submit">Sign In</Button>
+                {message ? <Message message={message} /> : null}
             </Form>
             <p style={{fontFamily:"'Times New Roman'"}}>Don't have an account? Click <a href="/register" style={{fontWeight:"bold"}}>here</a>!</p>
-            {message ? <Message message={message} /> : null}
+            
         </Container>
     )
 }

@@ -196,20 +196,20 @@ function Edit(props) {
 
         <Container>
             {user._id === currentArtist ?
-                <Container>
+                <Container style={{ width: "50vw", borderColor: "black" }}>
 
-                    <Nav className="justify-content-center" variant="tabs" activeKey={contentInView} style={{ borderBottom: "none", width: "100%", borderColor: "black" }}>
+                    <Nav className="justify-content-center" variant="tabs" activeKey={contentInView} >
                         <Nav.Item>
-                            <Nav.Link eventKey="Info" id="Info" style={{ fontWeight: "inherit", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Info</Nav.Link>
+                            <Nav.Link eventKey="Info" id="Info" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Info</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="Bio" id="Bio" style={{ fontWeight: "inherit", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Bio</Nav.Link>
+                            <Nav.Link eventKey="Bio" id="Bio" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Bio</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="Roles" id="Roles" style={{ fontWeight: "lighter", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Roles</Nav.Link>
+                            <Nav.Link eventKey="Roles" id="Roles" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Roles</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="Audio" id="Audio" style={{ fontWeight: "bold", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Audio</Nav.Link>
+                            <Nav.Link eventKey="Audio" id="Audio" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Audio</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="Video" id="Video" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Video</Nav.Link>
@@ -218,7 +218,7 @@ function Edit(props) {
                             <Nav.Link eventKey="Headshot" id="Headshot" style={{ fontWeight: "bolder", fontFamily: "'Times New Roman'" }} onClick={handleNavClick}>Headshot</Nav.Link>
                         </Nav.Item>
                     </Nav>
-                    <Form id="Info" style={{ display: "none" }} onSubmit={onArtistSubmit}>
+                    <Form id="Info" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onArtistSubmit}>
                         <Form.Label htmlFor="first_name" style={{ fontFamily: "'Times New Roman'" }}>First Name: </Form.Label>
                         <input className="form-control" type="text" name="first_name" defaultValue={artistViewed.first_name} style={{ fontFamily: "'Times New Roman'" }} placeholder="Jane" onChange={onArtistChange} />
                         <Form.Label htmlFor="last_name" style={{ fontFamily: "'Times New Roman'" }}>Last Name: </Form.Label>
@@ -235,14 +235,14 @@ function Edit(props) {
                         {message ? <Message message={message} /> : null}
                     </Form>
 
-                    <Form id="Bio" style={{ display: "none" }} onSubmit={onArtistSubmit}>
+                    <Form id="Bio" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onArtistSubmit}>
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Add/Edit Bio: </Form.Label>
                         <textarea className="form-control" name="bio" style={{ fontFamily: "'Times New Roman'" }} defaultValue={artistViewed.bio} placeholder="Enter Bio Here" onChange={onArtistChange} />
                         <Button style={{ marginTop: "5px", fontFamily: "'Times New Roman'" }} variant="outline-dark" type="submit">Submit</Button>
                         {message ? <Message message={message} /> : null}
                     </Form>
 
-                    <Form id="Roles" style={{ display: "none" }} onSubmit={onRoleSubmit}>
+                    <Form id="Roles" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onRoleSubmit}>
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Character: </Form.Label>
                         <input className="form-control" name="character_name" style={{ fontFamily: "'Times New Roman'" }} placeholder="Sarastro" onChange={onRoleChange} required />
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Opera/Show: </Form.Label>
@@ -253,7 +253,7 @@ function Edit(props) {
                         {message ? <Message message={message} /> : null}
                     </Form>
 
-                    <Form id="Audio" style={{ display: "none" }} onSubmit={onAudioSubmit}>
+                    <Form id="Audio" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onAudioSubmit}>
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Song Name: </Form.Label>
                         <input className="form-control" name="song_name" style={{ fontFamily: "'Times New Roman'" }} placeholder="O Isis und Osiris" onChange={onAudioInfoChange} required />
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Composer: </Form.Label>
@@ -266,7 +266,7 @@ function Edit(props) {
                         {message ? <Message message={message} /> : null}
                     </Form>
 
-                    <Form id="Video" style={{ display: "none" }} onSubmit={onVideoSubmit}>
+                    <Form id="Video" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onVideoSubmit}>
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Song Name: </Form.Label>
                         <input className="form-control" name="song_name" style={{ fontFamily: "'Times New Roman'" }} placeholder="O Isis und Osiris" onChange={onVideoChange} required />
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Composer: </Form.Label>
@@ -279,7 +279,7 @@ function Edit(props) {
                         {message ? <Message message={message} /> : null}
                     </Form>
 
-                    <Form id="Headshot" style={{ display: "none" }} onSubmit={onPictureSubmit}>
+                    <Form id="Headshot" style={{ display: "none", marginTop:"2vh", boxShadow:"2px 2px 20px", padding:"2vh" }} onSubmit={onPictureSubmit}>
                         <Form.Label style={{ fontFamily: "'Times New Roman'" }}>Headshot : </Form.Label>
                         <Form.File style={{ fontFamily: "'Times New Roman'" }} name="headshot" onChange={onMediaChange} required />
                         <Button style={{ marginTop: "5px", fontFamily: "'Times New Roman'" }} variant="outline-dark" type="submit">Submit</Button>
