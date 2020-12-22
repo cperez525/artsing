@@ -82,7 +82,7 @@ function Register(props) {
                 <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="password" placeholder="Password must be at least 6 characters" onChange={onChange} required/>
                 <Button style={{ marginTop: "5px", fontFamily:"'Times New Roman'"}} variant="outline-dark" type="submit">Create Account</Button>
             </Form>
-            <p style={{fontFamily:"'Times New Roman'"}}>Already have an account? Click <a href="/signin">here</a>!</p>
+            <p style={{fontFamily:"'Times New Roman'"}}>Already have an account? Click <a href="/signin" style={{fontWeight:"bold"}}>here</a>!</p>
             {message ? <Message message={message} /> : null}
         </Container>
     )
