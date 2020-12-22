@@ -6,6 +6,7 @@ import SearchPage from "./pages/searchPage";
 import SignIn from "./pages/signInPage";
 import ProfilePage from "./pages/profilePage"
 import Register from "./pages/registerPage";
+import Edit from "./pages/profileEditPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/search" component={SearchPage} />
           <Route exact path="/profile=:id" component={ProfilePage} />
           <Route exact path="/register" component={Register} />
+          <Route exact path="/profileedit=:id" component={Edit}/>
         </Switch>
       </div>
     </Router>

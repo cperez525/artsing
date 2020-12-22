@@ -13,13 +13,24 @@ export default {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
-            .then(data => data);
+            .then(data => data)
     },
 
     getRoles: (id) => {
         return fetch('/user/roles/profile=' + id).then(res => {
                 return res.json().then(data => data)
             })
+    },
+
+    addRole: (body) =>{
+        return fetch('/user/roles', {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => data)
     },
 
 
@@ -29,10 +40,32 @@ export default {
             })
     },
 
+    addAudio: (body) =>{
+        return fetch('/user/audios', {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => data)
+    },
+
     getVideo: (id) => {
         return fetch('/user/videos/profile=' + id).then(res => {
                 return res.json().then(data => data)
             })
+    },
+
+    addVideo: (body) =>{
+        return fetch('/user/videos', {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => data)
     },
 
     simpleSearch: (search) => {

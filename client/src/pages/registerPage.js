@@ -59,7 +59,7 @@ function Register(props) {
                 <Form.Label htmlFor="last_name" style={{fontFamily:"'Times New Roman'"}}>Last Name: </Form.Label>
                 <input className="form-control" type="text" name="last_name" style={{fontFamily:"'Times New Roman'"}} placeholder="Doe (required)" onChange={onChange} required/>
                 <Form.Label style={{fontFamily:"'Times New Roman'"}}>Voice Type:</Form.Label>
-                <Form.Control name="voice_type" as="select" onChange={onChange}>
+                <Form.Control name="voice_type" as="select" style={{fontFamily:"'Times New Roman'"}} onChange={onChange}>
                     <option></option>
                     <option style={{fontFamily:"'Times New Roman'"}}>Soprano</option>
                     <option style={{fontFamily:"'Times New Roman'"}}>Mezzo-soprano</option>

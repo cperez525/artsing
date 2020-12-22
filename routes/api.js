@@ -35,7 +35,7 @@ usersRouter.put('/profile', passport.authenticate('jwt', { session: false }), (r
         if (err)
             return res.status(500).json({ message: { messageBody: "Error has occured.", messageError: true } });
         else {
-            return res.status(200).json({ hello: "meow" + req.user._id, yo: newData, document, message: { messageBody: "Update was successful!", messageError: true } })
+            return res.status(200).json({ message: { messageBody: "Update was successful!", messageError: false } })
         }
     })
 });
@@ -108,8 +108,8 @@ usersRouter.post('/videos', passport.authenticate('jwt', { session: false }), (r
     const video = new Video(req.body);
     video.save((err) => {
         if (err)
-            return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
-        req.user.videos_recordings.push(video);
+            return res.status(500).json({ message: { messageBody: err, messageError: true } });
+        req.user.video_recordings.push(video);
         req.user.save((err) => {
             if (err)
                 return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
@@ -131,11 +131,11 @@ usersRouter.post('/audios', passport.authenticate('jwt', { session: false }), (r
     const audio = new Audio(req.body);
     audio.save((err) => {
         if (err)
-            return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
-        req.user.videos_recordings.push(video);
+            return res.status(500).json({ message: { messageBody: err, messageError: true } });
+        req.user.audio_recordings.push(audio);
         req.user.save((err) => {
             if (err)
-                return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
+                return res.status(500).json({ message: { messageBody: err, messageError: true } });
             res.status(200).json({ message: { messageBody: "Audio recording successfully added!", messageError: false } })
         })
     })
@@ -145,7 +145,7 @@ usersRouter.get('/audios/profile=:id', (req, res) => {
     User.findById({ _id: req.params.id }).populate("audio_recordings").exec((err, document) => {
         if (err)
             return res.status(500).json({ message: { messageBody: "Error has occured", messageError: true } });
-        res.status(200).json({ video_recordings: document.video_recordings, authenticated: true })
+        res.status(200).json({ audio_recordings: document.audio_recordings, authenticated: true })
     });
 });
 

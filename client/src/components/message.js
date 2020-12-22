@@ -8,7 +8,6 @@ function Message(props){
 
         <Alert variant={props.message.messageError ? "danger" : "success"} >
             {props.message.messageBody}
-            {console.log(props)}
         </Alert>
     )
 }
