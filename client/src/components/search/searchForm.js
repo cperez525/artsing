@@ -36,7 +36,7 @@ function SearchForm(props) {
         e.preventDefault();
         if (searchType.type === "simple") {
             ProfileService.simpleSearch(search).then(data => {
-                setSearchResults(data)
+                setSearchResults(data.response)
             })
         } else {
             ProfileService.advancedSearch(JSON.stringify(search)).then(res => {
