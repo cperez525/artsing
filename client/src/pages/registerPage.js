@@ -54,7 +54,7 @@ function Register(props) {
 
     return (
         <Container style={{width:"50vw", marginTop:"1vh", marginBottom:"1vh", boxShadow:"2px 2px 30px", borderRadius:"8px" ,padding:"2vh"}}>
-            <Form onSubmit={onSubmit}>
+            <Form method="post" action="/form" autoComplete="off" onSubmit={onSubmit}>
                 <Form.Label htmlFor="first_name" style={{fontFamily:"'Times New Roman'"}}>First Name: </Form.Label>
                 <input className="form-control" type="text" name="first_name" style={{fontFamily:"'Times New Roman'"}} placeholder="Jane (required)" onChange={onChange} required="You must provide a first name"/>
                 <Form.Label htmlFor="last_name" style={{fontFamily:"'Times New Roman'"}}>Last Name: </Form.Label>
