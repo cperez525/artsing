@@ -12,7 +12,7 @@
   [Questions](#questions)
 
   ## Instructions
-  To use this platform, navigate to https://blooming-ridge-48312.herokuapp.com/.
+  To use this platform, navigate to https://singid2.herokuapp.com/.
 
   ## Usage
   There are two core purposes for this application: creating your own vocal artist profile, or browsing existing artists in the database. 
