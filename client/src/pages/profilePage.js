@@ -129,9 +129,7 @@ function ProfilePage(props) {
                                 <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>
                                     {rolesViewed.map(Role =>
                                         <tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                            <td>{Role.character_name}</td>
-                                            <td>{Role.opera_show_name}</td>
-                                            <td>{Role.composer}</td>
+                                            <td>{Role.character_name} ({Role.opera_show_name}- {Role.composer})</td>
                                         </tr>
                                     )}
 
