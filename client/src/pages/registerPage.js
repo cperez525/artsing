@@ -74,8 +74,8 @@ function Register(props) {
                 <input className="form-control" type="text" name="city" style={{fontFamily:"'Times New Roman'"}} placeholder="Austin (required)" onChange={onChange} required />
                 <Form.Label htmlFor="state" style={{fontFamily:"'Times New Roman'"}}>State: </Form.Label>
                 <input className="form-control" type="text" name="state" style={{fontFamily:"'Times New Roman'"}} placeholder="Texas (required)" onChange={onChange} required/>
-                <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>School: </Form.Label>
-                <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="password" placeholder="University of Houston (not required)" onChange={onChange}/>
+                <Form.Label htmlFor="school" style={{fontFamily:"'Times New Roman'"}}>School: </Form.Label>
+                <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="school" placeholder="University of Houston (not required)" onChange={onChange}/>
                 <Form.Label htmlFor="email" style={{fontFamily:"'Times New Roman'"}}>Email Address: </Form.Label>
                 <input className="form-control" style={{fontFamily:"'Times New Roman'"}} type="text" name="email" placeholder="janedoe@isfake.net (required)" onChange={onChange} required/>
                 <Form.Label htmlFor="password" style={{fontFamily:"'Times New Roman'"}}>Password: </Form.Label>
