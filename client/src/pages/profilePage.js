@@ -126,10 +126,10 @@ function ProfilePage(props) {
                             }
 
                             {rolesViewed.length > 0 ?
-                                <Container style={{ width: "50%"}}>
+                                <Container style={{ width:"50%" }}>
                                     {rolesViewed.map(Role =>
-                                        <tr className="Roles trow" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
-                                            <td>{Role.character_name} ({Role.opera_show_name}- {Role.composer})</td>
+                                        <tr className="Roles trow text-wrap" style={{ display: "none", fontFamily: "'Times New Roman'" }}>
+                                            <td>{Role.character_name} ({Role.opera_show_name} - {Role.composer}) </td>
                                         </tr>
                                     )}
 
@@ -164,7 +164,7 @@ function ProfilePage(props) {
                                 audioViewed.map(Recording =>
                                     <tr className="Audio trow" style={{ display: "none", fontFamily: "'Times New Roman'", marginLeft: "20%", marginRight: "20%" }}>
                                         <audio controls controlsList="nodownload" src={Recording.audio_link}>Your browser doesn't support this audio player</audio>
-                                        <td>{Recording.song_name} ({Recording.song_composer})</td>
+                                        <td style={{paddingTop:"0"}}>{Recording.song_name} ({Recording.song_composer})</td>
                                     </tr>)
                                 :
                                 <Container style={{ marginLeft: "6vw", marginRight: "6vw" }}>

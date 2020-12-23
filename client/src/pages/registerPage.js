@@ -41,6 +41,7 @@ function Register(props) {
 
             const { message } = data;
             setMessage(message);
+            console.log(data)
             
 
             if (!message.messageError) {
